@@ -31,8 +31,8 @@ document.getElementById("btnSend").addEventListener("click" , function(){
 
             
             stadtname += "<h1>" + data.name + " " + temp + "°C</h1>";
-            html += "<h6>" + lon + " - " + lat + "</h6>";
-            weather_descrition += "<h5>" + weather_desc + "</h5>";
+            html += "<h6>Koordinaten: " + lon + " - " + lat + "</h6>";
+            weather_descrition += "<h4>" + weather_desc + "</h4>";
 
             document.getElementById("sunrise").innerHTML = formSunrise;
             document.getElementById("sunset").innerHTML = formSunset;
