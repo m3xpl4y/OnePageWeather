@@ -10,15 +10,18 @@ document.getElementById("btnSend").addEventListener("click" , function(){
     }).then(response => response.json())
         .then(function(data){
             let sunrise = new Date(data.sys.sunrise * 1000);
-            var hours = sunrise.getHours();
-            var seconds = sunrise.getSeconds();
-            //var hours = (sunrise.getHours() < 10) ? "0" + sunrise.getHours() : sunrise.getHours();
+            var hours = (sunrise.getHours() < 10) ? "0" + sunrise.getHours() : sunrise.getHours();
             var minutes = (sunrise.getMinutes() < 10) ? "0" + sunrise.getMinutes() : sunrise.getMinutes();
             
+            let sunset = new Date(data.sys.sunset * 1000);
+            var setHoures = (sunset.getHours() < 10) ? "0" + sunset.getHours() : sunset.getHours();
+            var setMinutes = (sunset.getMinutes() < 10) ? "0" + sunset.getMinutes() : sunset.getMinutes();
+
             let stadtname = "";
             let html = "";
             let weather_descrition = "";
-            let formSunrise = "Sonnenaufgang: " + hours + ":" + minutes + ":" + seconds + " Uhr";
+            let formSunrise = "Sonnenaufgang: " + hours + ":" + minutes + " Uhr";
+            let formSunset =  "Sonnenuntergang: " + setHoures + ":" + setMinutes + " Uhr";
 
             let lon = data.coord.lon;
             let lat = data.coord.lat;
@@ -32,6 +35,7 @@ document.getElementById("btnSend").addEventListener("click" , function(){
             weather_descrition += "<h5>" + weather_desc + "</h5>";
 
             document.getElementById("sunrise").innerHTML = formSunrise;
+            document.getElementById("sunset").innerHTML = formSunset;
             document.getElementById("name-stadt").innerHTML = stadtname;
             document.getElementById("moreInfo").innerHTML = html;
             document.getElementById("weather-desc").innerHTML = weather_descrition;
