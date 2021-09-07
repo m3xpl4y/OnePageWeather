@@ -1,4 +1,5 @@
 
+
 document.getElementById("btnSend").addEventListener("click" , function(){
     var inputfield = document.getElementById("inputField").value;
     var api = "http://api.openweathermap.org/data/2.5/weather?q=";
@@ -8,10 +9,16 @@ document.getElementById("btnSend").addEventListener("click" , function(){
         method: "GET"
     }).then(response => response.json())
         .then(function(data){
+            let sunrise = new Date(data.sys.sunrise * 1000);
+            var hours = sunrise.getHours();
+            var seconds = sunrise.getSeconds();
+            //var hours = (sunrise.getHours() < 10) ? "0" + sunrise.getHours() : sunrise.getHours();
+            var minutes = (sunrise.getMinutes() < 10) ? "0" + sunrise.getMinutes() : sunrise.getMinutes();
             
             let stadtname = "";
             let html = "";
             let weather_descrition = "";
+            let formSunrise = "Sonnenaufgang: " + hours + ":" + minutes + ":" + seconds + " Uhr";
 
             let lon = data.coord.lon;
             let lat = data.coord.lat;
@@ -19,11 +26,12 @@ document.getElementById("btnSend").addEventListener("click" , function(){
             let weather_desc = data.weather[0].description;
             let temp = parseInt(data.main.temp, 10);
 
-
+            
             stadtname += "<h1>" + data.name + " " + temp + "°C</h1>";
             html += "<h6>" + lon + " - " + lat + "</h6>";
             weather_descrition += "<h5>" + weather_desc + "</h5>";
 
+            document.getElementById("sunrise").innerHTML = formSunrise;
             document.getElementById("name-stadt").innerHTML = stadtname;
             document.getElementById("moreInfo").innerHTML = html;
             document.getElementById("weather-desc").innerHTML = weather_descrition;
