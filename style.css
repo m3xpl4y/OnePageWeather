@@ -1,0 +1,17 @@
+.bigbg{
+    position: absolute;
+    top: 65px;;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.input-weather{
+    height: auto;
+    width: 450px;
+    margin-top: 10px;
+}
+.shadow{
+    text-shadow: 2px 2px 4px #fff;
+}

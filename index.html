@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Wetter</title>
 </head>
+
 <body class="bg bg-info">
-    <div class="container-sm input-group mb-3">
+
+    <div class="container-sm input-group mb-3 input-weather">
         <input id="inputField" class="form-control" type="text" playeholder="Stadtname" style="width: 200px;">
-            <br>
+        <br>
         <div class="input-group-append">
             <button class="btn btn-outline-secondary" id="btnSend">Button</button>
         </div>
     </div>
-    <div class="container-sm">
-        <div class="row">
-            <div class="col-sm">
-                <div  id="name-stadt"></div>
-                <div  id="weather-desc"></div>
-                <div id="moreInfo"></div>
+    <div class="bigbg" id="bg-image">
+        <div class="container-sm shadow" >
+            <div class="container-sm" id="bg-weather">
+                <div class="row ">
+                    <div class="col-sm">
+                        <div id="name-stadt"></div>
+                        <div id="weather-desc"></div>
+                        <div id="moreInfo"></div>
+                    </div>
+                    <div class="col-sm">
+                        <div id="weather-condition" style="align-content: flex-start;"></div>
+                        <div id="sunrise" style="font-family: Verdana, Geneva, Tahoma, sans-serif;"></div>
+                        <div id="sunset" style="font-family: Verdana, Geneva, Tahoma, sans-serif;"></div>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm">
-                <div id="weather-condition" style="align-content: flex-start;"></div>
-                    <div id="sunrise" style="font-family: Verdana, Geneva, Tahoma, sans-serif;"></div>
-                    <div id="sunset" style="font-family: Verdana, Geneva, Tahoma, sans-serif;"></div>
-            </div>    
         </div>
     </div>
 </body>
+
 </html>
